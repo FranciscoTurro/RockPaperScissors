@@ -1,8 +1,8 @@
 function computerPlay() {
-    let x = Math.floor(Math.random() * 3);
-    if (x == 0) {
+    let compChoice = Math.floor(Math.random() * 3);
+    if (compChoice == 0) {
         return "Rock";
-    } else if (x == 1) {
+    } else if (compChoice == 1) {
         return "Paper";
     } else {
         return "Scissors";
@@ -39,11 +39,11 @@ function oneRound(playerChoice, computerChoice) {
     }
 }
 function game() {
-    let x = prompt("How many games do you want to play?");
-    if (isNaN(x)) {
+    let numofGames = prompt("How many games do you want to play?");
+    if (isNaN(numofGames)) {
         alert("Please choose only a number of games to play");
     } else {
-        for (let i = 0; i < x; i++) {
+        for (let i = 0; i < numofGames; i++) {
             alert(oneRound(prompt("what is your pick"), computerPlay()));
         }
     }
