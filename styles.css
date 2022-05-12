@@ -1,0 +1,44 @@
+body {
+    font-family: "ModeNine";
+    min-height: 100vh;
+    margin: 0;
+    background-color:black;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    color: white;
+    display: flex;
+}
+
+p {
+    padding-top:100px;
+    padding-bottom: 100px;
+    color: white;
+}
+
+span {
+    color: white;
+}
+
+.image {
+    height: 300px;
+    width: auto;
+}
+
+.image-containers {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;    
+    gap: 50px;
+}
+
+.transparent {
+    background-color: transparent;
+    border: 0px;
+}
+
+* {
+    outline: 2px solid red;
+}
