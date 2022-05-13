@@ -12,27 +12,27 @@ function computerPlay() {
 function oneRound(playerChoice, computerChoice) {
     if (playerChoice == "Rock") {
         if (computerChoice == "Scissors") {
-            return "You won! Opponent chose scissors";
+             alert("You won! Opponent chose scissors");
         } else if (computerChoice == "Paper") {
-            return "You lost! Opponent chose paper";
+            alert( "You lost! Opponent chose paper");
         } else {
-            return "Its a draw! Opponent chose rock";
+            alert( "Its a draw! Opponent chose rock");
         }
     } else if (playerChoice == "Scissors") {
         if (computerChoice == "Scissors") {
-            return "Its a draw! Opponen chose scissors";
+            alert( "Its a draw! Opponen chose scissors");
         } else if (computerChoice == "Paper") {
-            return "You won! Opponent chose paper";
+            alert( "You won! Opponent chose paper");
         } else {
-            return "You lost! Opponent chose rock";
+            alert("You lost! Opponent chose rock");
         }
     } else if (playerChoice == "Paper") {
         if (computerChoice == "Scissors") {
-            return "You lost! Opponent chose scissors";
+            alert("You lost! Opponent chose scissors");
         } else if (computerChoice == "Paper") {
-            return "Its a draw! Opponent chose paper";
+            alert("Its a draw! Opponent chose paper");
         } else {
-            return "You won! Opponent chose rock";
+            alert("You won! Opponent chose rock");
         }
     } else {
         alert("Please only choose rock, paper or scissors!");
@@ -48,4 +48,11 @@ function game() {
         }
     }
 }
-game();
+
+const buttons = document.querySelectorAll('button'); //returns an array-like object called a node list
+buttons.forEach((buttons) => {
+    buttons.addEventListener('click', () => {
+        const img = buttons.querySelector('img');
+        oneRound(img.id,computerPlay());
+        })
+})

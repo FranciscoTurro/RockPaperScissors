@@ -32,6 +32,12 @@ span {
     justify-content: center;
     flex-wrap: nowrap;    
     gap: 50px;
+
+}
+
+.text {
+    text-align: center;
+    color: white;
 }
 
 .transparent {
@@ -40,5 +46,6 @@ span {
 }
 
 * {
-    outline: 2px solid red;
+    /* outline: 2px solid red; */
 }
+
