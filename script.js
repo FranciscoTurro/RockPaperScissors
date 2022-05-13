@@ -1,58 +1,50 @@
+let playerCounter = 0;
+let machineCounter = 0;
+
 function computerPlay() {
-    let compChoice = Math.floor(Math.random() * 3);
-    if (compChoice == 0) {
-        return "Rock";
-    } else if (compChoice == 1) {
-        return "Paper";
-    } else {
-        return "Scissors";
-    }
+  const choices = ["Rock", "Paper", "Scissors"];
+  return choices[Math.floor(Math.random() * choices.length)];
 }
 
 function oneRound(playerChoice, computerChoice) {
-    if (playerChoice == "Rock") {
-        if (computerChoice == "Scissors") {
-             alert("You won! Opponent chose scissors");
-        } else if (computerChoice == "Paper") {
-            alert( "You lost! Opponent chose paper");
-        } else {
-            alert( "Its a draw! Opponent chose rock");
-        }
-    } else if (playerChoice == "Scissors") {
-        if (computerChoice == "Scissors") {
-            alert( "Its a draw! Opponen chose scissors");
-        } else if (computerChoice == "Paper") {
-            alert( "You won! Opponent chose paper");
-        } else {
-            alert("You lost! Opponent chose rock");
-        }
-    } else if (playerChoice == "Paper") {
-        if (computerChoice == "Scissors") {
-            alert("You lost! Opponent chose scissors");
-        } else if (computerChoice == "Paper") {
-            alert("Its a draw! Opponent chose paper");
-        } else {
-            alert("You won! Opponent chose rock");
-        }
+  if (playerChoice == "Rock") {
+    if (computerChoice == "Scissors") {
+      ++playerCounter;
+    } else if (computerChoice == "Paper") {
+      ++machineCounter;
     } else {
-        alert("Please only choose rock, paper or scissors!");
+      ++machineCounter;
+      ++playerCounter;
     }
-}
-function game() {
-    let numofGames = prompt("How many games do you want to play?");
-    if (isNaN(numofGames)) {
-        alert("Please choose only a number of games to play");
+  } else if (playerChoice == "Scissors") {
+    if (computerChoice == "Scissors") {
+      ++playerCounter;
+      ++machineCounter;
+    } else if (computerChoice == "Paper") {
+      ++playerCounter;
     } else {
-        for (let i = 0; i < numofGames; i++) {
-            alert(oneRound(prompt("what is your pick"), computerPlay()));
-        }
+      ++machineCounter;
     }
+  } else if (playerChoice == "Paper") {
+    if (computerChoice == "Scissors") {
+      ++machineCounter;
+    } else if (computerChoice == "Paper") {
+      ++machineCounter;
+      ++playerCounter;
+    } else {
+      ++playerCounter;
+    }
+  }
 }
-
-const buttons = document.querySelectorAll('button'); //returns an array-like object called a node list
+const buttons = document.querySelectorAll("button"); //returns an array-like object called a node list
 buttons.forEach((buttons) => {
-    buttons.addEventListener('click', () => {
-        const img = buttons.querySelector('img');
-        oneRound(img.id,computerPlay());
-        })
-})
+  buttons.addEventListener("click", () => {
+    const img = buttons.querySelector("img");
+    oneRound(img.id, computerPlay());
+    const pcounter = document.querySelector("#playerCounter");
+    pcounter.textContent = playerCounter;
+
+    const ccounter = document.querySelector("#pcCounter");
+    ccounter.textContent = machineCounter;
+  });
+});
