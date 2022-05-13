@@ -46,5 +46,17 @@ buttons.forEach((buttons) => {
 
     const ccounter = document.querySelector("#pcCounter");
     ccounter.textContent = machineCounter;
+    gameCheck();
   });
 });
+
+function gameCheck() {
+    if (playerCounter == 5) {
+        alert('w');
+        document.location.reload();
+    }
+    if (machineCounter == 5) {
+        alert('l');
+        document.location.reload();
+    }
+}
